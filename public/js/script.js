@@ -48,6 +48,12 @@ async function processLoginForm(event) {
                 alert('Error')
             } else {
                 response.text().then(data => {
+
+                    if (data === 'Користувача з таким емейлом не знайдено')
+                    {
+                        alert(data)
+                        window.location.href = '/auth/registration';
+                    }
                     window.location.href = '/myCabinet';
                 });
             }

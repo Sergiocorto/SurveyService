@@ -34,7 +34,7 @@ class ModalCreateSurvey
                           <label class="input-group-text" for="inputGroupSelect02">Options</label>
                         </div>
                       </div>
-                      <div class="form-group" id="answers-container">
+                      <div class="form-group" id="answers-containerCreate">
                         <div class="form-group">
                             <label for="answer1">Answer 1:</label>
                             <input type="text" class="form-control" id="answer1" placeholder="Enter answer 1">

@@ -1,5 +1,5 @@
 const addAnswerBtn = document.querySelector('#add-answer-btn');
-const answersContainer = document.querySelector('#answers-container');
+const answersContainer = document.querySelector('#answers-containerCreate');
 let answerCount = 1;
 
 addAnswerBtn.addEventListener('click', () => {
@@ -17,6 +17,7 @@ addAnswerBtn.addEventListener('click', () => {
     newAnswerGroup.appendChild(newAnswerLabel);
     newAnswerGroup.appendChild(newAnswerInput);
     answersContainer.appendChild(newAnswerGroup);
+
 });
 
 const editForms = document.querySelectorAll('.editForm');
@@ -68,9 +69,9 @@ const createForm = document.getElementById('createForm');
 createForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const questionInput = document.getElementById('question');
-    const status = document.getElementById("status").value;
-    const answerInputs = document.querySelectorAll('#answers-container input');
+    const questionInput = createForm.querySelector('#question');
+    const status = createForm.querySelector("#status").value;
+    const answerInputs = document.querySelectorAll('#answers-containerCreate input');
     const answers = [];
 
     answerInputs.forEach(input => {
@@ -88,7 +89,6 @@ createForm.addEventListener('submit', async (e) => {
         status: status,
         answers: answers
     };
-
     await fetch(createForm.action, {
         method: createForm.method,
         body: JSON.stringify(survey)

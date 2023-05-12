@@ -21,7 +21,7 @@ class Db extends PDO
                 "mysql:host=localhost;
                 dbname=survey_service",
                 'root',
-                "",
+                '',
                 $options
             );
         } catch (\PDOException $e) {
