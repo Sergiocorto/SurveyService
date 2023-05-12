@@ -13,6 +13,7 @@ use Helpers\RequestParsingHelper;
 
 
 try {
+    if($_SERVER['REQUEST_URI'] === '/') header('Location: /auth/login');
     $requestParts = RequestParsingHelper::getRequestParts();
     RouterController::getInstance()->route($routes, $requestParts);
 } catch (RouteExceptions $e){
