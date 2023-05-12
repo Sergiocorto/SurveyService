@@ -4,7 +4,7 @@ namespace Helpers;
 
 class RequestParsingHelper
 {
-    public static function getRequestParts(): array
+    static public function getRequestParts(): array
     {
         $requestParts = [
             'urlParts' => explode('/', trim($_SERVER['REQUEST_URI'], '/')),
@@ -20,5 +20,13 @@ class RequestParsingHelper
         }
     
         return $requestParts;
+    }
+
+    static public function getUserIdInSession()
+    {
+        session_start();
+        if(isset($_SESSION['user'])) return $id = $_SESSION['user']['id'];
+        header('Location: /auth/login');
+
     }
 }

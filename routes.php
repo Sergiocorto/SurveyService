@@ -3,12 +3,13 @@
 $routes = [
     'myCabinet' =>
     [
-        'controller' => 'Controllers\UserController',
+        'controller' => 'Controllers\CabinetController',
         'actions' =>
         [
-            '/' => [
-                       'GET' => 'getProfileView'
-                       ]
+            '/' =>
+                [
+                    'GET' => 'getProfileView'
+                ]
         ]
     ],
     'auth' =>
@@ -16,18 +17,63 @@ $routes = [
             'controller' => 'Controllers\AuthController',
             'actions' =>
                 [
-                    'login' => [
+                    'login' =>
+                    [
                         'GET' => 'getLoginView',
                         'POST' => 'login'
                     ],
-                    'logout' => [
+                    'logout' =>
+                    [
                         'GET' => 'logout'
-
                     ],
-                    'registration' => [
+                    'registration' =>
+                    [
                         'GET' => 'getRegistrationView',
                         'POST' => 'registration'
                     ],
                 ]
         ],
+    'survey' =>
+        [
+            'controller' => 'Controllers\SurveyController',
+            'actions' =>
+                [
+                    'add' =>
+                    [
+                        'POST' => 'addSurvey'
+                    ],
+                    'sortByDate' =>
+                        [
+                            'GET' => 'sortByDate'
+                        ],
+                    'sortByTitle' =>
+                        [
+                            'GET' => 'sortByTitle'
+                        ],
+                    'sortByPublished' =>
+                        [
+                            'GET' => 'sortByPublished'
+                        ],
+                    'sortByUnpublished' =>
+                        [
+                            'GET' => 'sortByUnpublished'
+                        ],
+                    'delete' =>
+                        [
+                            'GET' => 'deleteSurvey'
+                        ]
+                ]
+        ],
+    'api' =>
+        [
+            'controller' => 'Controllers\SurveyController',
+            'actions' =>
+            [
+                'getSurvey' =>
+                    [
+                        'GET' => 'getRandomSurvey'
+                    ]
+            ]
+
+        ]
 ];

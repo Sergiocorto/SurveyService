@@ -8,7 +8,7 @@ use Views\RegistrationView;
 
 class AuthController
 {
-    public function getLoginView(): void
+    public function getLoginView()
     {
         LoginView::render();
     }

@@ -3,15 +3,13 @@
 
 namespace Models;
 
-
-use http\Client\Response;
 use Repositories\UserRepository;
 
 class Auth
 {
     private $userRepository;
 
-    static public function login($data): string
+    static public function login($data)
     {
         $user = (new UserRepository())->getUserByEmail($data['email']);
 

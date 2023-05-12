@@ -1,5 +1,3 @@
-console.log(document.cookie)
-
 async function processForm(event) {
     event.preventDefault();
     const email = document.getElementById('email').value.trim();
@@ -22,7 +20,7 @@ async function processForm(event) {
                     alert('Реєстрація не пройшла, спробуйте ще раз')
                 } else {
                 response.text().then(data => {
-                    alert(data);
+                    window.location.href = 'login';
                 });
             }
             })
@@ -35,14 +33,11 @@ async function processLoginForm(event) {
     event.preventDefault();
     const email = document.getElementById('email').value.trim();
     let password = document.getElementById('password').value.trim();
-
     password = btoa(password);
-
     const user = {
         'email': email,
         'password': password
     }
-
     const form = document.getElementById('form');
     await fetch(form.action, {
         method: form.method,
@@ -53,7 +48,7 @@ async function processLoginForm(event) {
                 alert('Error')
             } else {
                 response.text().then(data => {
-                    alert(data);
+                    window.location.href = '/myCabinet';
                 });
             }
         })

@@ -1,10 +1,7 @@
 <?php
 namespace Routers;
 
-use Helpers\GenerateQueryStringHelper;
 use Interfaces\RouterInterface;
-use Models\Db;
-use Repositories\Repository;
 
 class Router implements RouterInterface
 {
@@ -28,6 +25,7 @@ class Router implements RouterInterface
            (new $controller())->$method($data);
         } else {
             print_r('404');
+            exit(404);
         }
     }
 }
