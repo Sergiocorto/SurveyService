@@ -19,6 +19,51 @@ addAnswerBtn.addEventListener('click', () => {
     answersContainer.appendChild(newAnswerGroup);
 });
 
+const editForms = document.querySelectorAll('.editForm');
+editForms.forEach((form) => {
+    form.addEventListener('submit', async(e) => {
+        e.preventDefault();
+
+        const questionInput = form.querySelector('#question');
+        const surveyId = form.querySelector('#surveyId');
+        const status = form.querySelector("#status").value;
+        const answerInputs = form.querySelectorAll('#answers-container input');
+        const answers = [];
+
+        answerInputs.forEach(input => {
+            const title = input.value.trim();
+            if (title !== '') {
+                answers.push({
+                    id: input.id,
+                    title: title,
+                });
+            }
+        });
+
+        const survey = {
+            id: surveyId.value.trim(),
+            title: questionInput.value.trim(),
+            status: status,
+            answers: answers
+        };
+
+        await fetch(form.action, {
+            method: form.method,
+            body: JSON.stringify(survey)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    alert('Error')
+                } else {
+                    window.location.href = '/myCabinet';
+                }
+            })
+    });
+});
+
+
+
+
 const createForm = document.getElementById('createForm');
 createForm.addEventListener('submit', async (e) => {
     e.preventDefault();

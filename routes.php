@@ -39,9 +39,13 @@ $routes = [
             'actions' =>
                 [
                     'add' =>
-                    [
-                        'POST' => 'addSurvey'
-                    ],
+                        [
+                            'POST' => 'addSurvey'
+                        ],
+                    'edit' =>
+                        [
+                            'POST' => 'editSurvey'
+                        ],
                     'sortByDate' =>
                         [
                             'GET' => 'sortByDate'

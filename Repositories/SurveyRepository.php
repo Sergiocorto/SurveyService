@@ -127,4 +127,19 @@ class SurveyRepository implements RepositoryInterface
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
+
+    public function edit($data)
+    {
+        try {
+            $sql = "UPDATE surveys SET title = :title, status = :status WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':title', $data['title']);
+            $stmt->bindParam(':status', $data['status']);
+            $stmt->bindParam(':id', $data['id']);
+            $stmt->execute();
+        } catch (\PDOException $e)
+        {
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        }
+    }
 }

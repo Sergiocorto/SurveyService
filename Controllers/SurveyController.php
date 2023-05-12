@@ -72,4 +72,9 @@ class SurveyController
     {
         echo Survey::getRandomSurvey($param['email']);
     }
+
+    public function editSurvey($survey)
+    {
+        Survey::editSurvey($survey);
+    }
 }

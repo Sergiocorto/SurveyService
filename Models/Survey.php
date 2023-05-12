@@ -14,7 +14,7 @@ class Survey
     static public function getAllSurveys()
     {
         $userId = RequestParsingHelper::getUserIdInSession();
-        $surveys = (new SurveyRepository)->getAllSurveys($userId);
+        $surveys = (new SurveyRepository)->getAll($userId);
         foreach ($surveys as &$survey)
         {
             $survey['answers'] = (new AnswerController()) -> getAllAnswerForSurvey($survey['id']);
@@ -113,5 +113,16 @@ class Survey
         $randomElement = $surveys[array_rand($surveys)];
         header('Content-Type: application/json');
         return json_encode($randomElement);
+    }
+
+    static public function editSurvey($data)
+    {
+        (new SurveyRepository()) -> edit($data);
+
+        if((new AnswerController()) -> editAnswer($data['answers']))
+        {
+            header("Location: /myCabinet");
+            exit;
+        }
     }
 }

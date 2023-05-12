@@ -28,11 +28,13 @@ class SurveyCard implements ViewInterface
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="text-muted">Status: '.$survey["status"].'</div>
                         <div class="btn-group">
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleEditModal-'.$survey['id'].'">Edit</button>
                           <button type="button" class="btn btn-danger" onclick="deleteSurvey('.$survey["id"].')">Delete</button>
                         </div>
                       </div>
                     </div>
                   </div>
+                  '.ModalEditSurvey::render($survey).'
                 </div>
             ';
     }

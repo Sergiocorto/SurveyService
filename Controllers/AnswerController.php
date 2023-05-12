@@ -22,4 +22,9 @@ class AnswerController
     {
         return Answer::deleteAnswers($surveyId);
     }
+
+    public function editAnswer($answers)
+    {
+        return Answer::editAnswer($answers);
+    }
 }

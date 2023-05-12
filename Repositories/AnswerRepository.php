@@ -62,4 +62,22 @@ class AnswerRepository implements RepositoryInterface
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
+
+    public function edit($answers)
+    {
+        try {
+            foreach ($answers as $answer)
+            {
+                $sql = "UPDATE answers SET title = :title WHERE id = :id";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(':title', $answer['title']);
+                $stmt->bindParam(':id', $answer['id']);
+                $stmt->execute();
+            }
+            return true;
+        } catch (\PDOException $e)
+        {
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        }
+    }
 }

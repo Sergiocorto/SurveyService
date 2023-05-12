@@ -27,4 +27,9 @@ class Answer
     {
         return (new AnswerRepository()) -> delete($surveyId);
     }
+
+    static public function editAnswer($answers)
+    {
+        (new AnswerRepository()) -> edit($answers);
+    }
 }

@@ -20,6 +20,7 @@ class AuthController
 
     public function login($data)
     {
+        print_r($data);
         Auth::login($data);
     }
 
