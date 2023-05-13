@@ -104,7 +104,7 @@ class Survey
     static public function getRandomSurvey($email)
     {
         $user = (new UserRepository())->getUserByEmail($email);
-        $surveys = (new SurveyRepository)->getAllSurveys($user['id']);
+        $surveys = (new SurveyRepository)->getAll($user['id']);
         foreach ($surveys as &$survey)
         {
             $survey['answers'] = (new AnswerController()) -> getAllAnswerForSurvey($survey['id']);

@@ -68,7 +68,7 @@ $routes = [
                         ]
                 ]
         ],
-    'appi' =>
+    'api' =>
         [
             'controller' => 'Controllers\SurveyController',
             'actions' =>

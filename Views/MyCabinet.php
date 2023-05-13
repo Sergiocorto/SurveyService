@@ -43,7 +43,12 @@ class MyCabinet implements ViewInterface
               <button class="btn btn-secondary" onclick="sort(this)" data-link="/survey/sortByUnpublished">Sort by unpublished</button>
             </div>
             <div class="col-md-9">
-                <div class="card">http://surveyservice.zzz.com.ua/appi/getSurvey/?email='.$_SESSION["user"]["email"].'</div>
+                <div class="card">http://surveyservice.zzz.com.ua/api/getSurvey/?email='.$_SESSION["user"]["email"].'</div>
+                <div class="card">
+                    <p>Cookie name: <span>cbatest7</span></p>
+                    <p>Cookie value: <span>blablabla</span></p>
+                    <p></p>
+            </div>
               <div class="card-deck">
                 '.$surveyCards.'
               </div>
