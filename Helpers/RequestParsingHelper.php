@@ -26,6 +26,6 @@ class RequestParsingHelper
     {
         session_start();
         if(isset($_SESSION['user'])) return $id = $_SESSION['user']['id'];
-        header('Location: /auth/login');
+        header('Location: /auth/registration');
     }
 }
